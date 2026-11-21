@@ -1,0 +1,71 @@
+project_id = "zyofbsgudfqtitirpfjx"
+
+[api]
+enabled = true
+port = 54321
+schemas = ["public", "graphql_public"]
+extra_search_path = ["public", "extensions"]
+max_rows = 1000
+
+[db]
+port = 54322
+shadow_port = 54320
+major_version = 17
+
+[db.pooler]
+enabled = false
+default_pool_size = 15
+max_client_conn = 200
+
+[studio]
+enabled = true
+port = 54323
+
+[local_smtp]
+enabled = true
+port = 54324
+
+[storage]
+enabled = true
+file_size_limit = "50MiB"
+
+[storage.analytics]
+enabled = true
+max_namespaces = 10
+
+[storage.image_transformation]
+enabled = true
+
+[auth]
+enabled = true
+site_url = "https://tradexbinary.com"
+additional_redirect_urls = ["https://tradexbinary.com/**", "https://www.tradexbinary.com/**", "http://localhost:5173/**", "http://127.0.0.1:5173/**"]
+
+[auth.email]
+enable_signup = true
+enable_confirmations = true
+double_confirm_changes = true
+max_frequency = "1m0s"
+otp_length = 8
+
+[auth.email.smtp]
+enabled = true
+host = "smtp.resend.com"
+port = 465
+user = "resend"
+pass = "env(RESEND_API_KEY)"
+admin_email = "noreply@tradexbinary.com"
+sender_name = "Trade X Binary"
+
+[auth.mfa.totp]
+enroll_enabled = true
+verify_enabled = true
+
+[auth.rate_limit]
+email_sent = 30
+
+[edge_runtime]
+enabled = true
+
+[analytics]
+enabled = false
